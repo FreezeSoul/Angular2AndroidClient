@@ -3,13 +3,15 @@ package com.web_wrapper;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Window;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-@SuppressLint("SetJavaScriptEnabled") public class FullscreenActivity extends Activity {
+@SuppressLint("SetJavaScriptEnabled")
+public class FullscreenActivity extends Activity {
 	private static final String URL = "https://www.angular.cn/docs/ts/latest/";
 	
     @Override
@@ -32,4 +34,22 @@ import android.webkit.WebViewClient;
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_BACK:
+                    final WebView myWebView = (WebView) findViewById(R.id.web_view);
+                    if (myWebView.canGoBack()) {
+                        myWebView.goBack();
+                    } else {
+                        finish();
+                    }
+                    return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 }
