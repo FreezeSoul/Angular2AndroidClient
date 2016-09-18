@@ -4,11 +4,13 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.Window;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import static android.view.View.*;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class FullscreenActivity extends Activity {
@@ -30,9 +32,18 @@ public class FullscreenActivity extends Activity {
                 return true;
             }
         });
+        myWebView.setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return true;
+            }
+        });
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
+        webSettings.setSupportZoom(true);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
     }
 
     @Override
