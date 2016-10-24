@@ -1,4 +1,4 @@
-package com.web_wrapper;
+package com.angularcn.web_wrapper;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

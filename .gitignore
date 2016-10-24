@@ -27,3 +27,4 @@ proguard/
 tmp/
 lint.xml
 proguard-project.txt
+AndroidKey.jks
