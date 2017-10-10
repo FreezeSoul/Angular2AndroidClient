@@ -14,7 +14,7 @@ import static android.view.View.*;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class FullscreenActivity extends Activity {
-	private static final String URL = "https://www.angular.cn/docs/ts/latest/";
+	private static final String URL = "https://www.angular.cn/";
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
